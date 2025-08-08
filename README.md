@@ -1,17 +1,10 @@
-# Accessible Quran
+# Accessible Quran v6.3
 
-A Quran streaming player with full accessibility support.
+Fixes:
+- Proper Arabic names displayed (separate Arabic span for correct RTL presentation)
+- Surah filenames use zero-padded IDs (001.mp3 ... 114.mp3)
+- Keeps reciter selection & accessibility features
 
-## Features
-- Keyboard navigation
-- Screen reader-friendly labels
-- Dark theme, high contrast
-- Remembers last surah, reciter, and playback position
-
-## Deployment
-Upload files to GitHub Pages via your repository settings.
-
-## Keyboard Shortcuts
-- **n**: Next surah
-- **p**: Previous surah
-- **Space/Enter**: Play selected surah
+Deployment:
+- Replace index.html, styles.css, app.js in your repo root with these files
+- Hard-refresh the site after deploy (Ctrl/Cmd + Shift + R)
