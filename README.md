@@ -1,21 +1,17 @@
-# Quran Audio Player — Accessible Dark Theme (v4)
+# Accessible Quran
 
-This release fixes the reciter selection and preserves previous accessibility improvements.
+A Quran streaming player with full accessibility support.
 
 ## Features
-- Dark accessible UI (high contrast, big focus outlines)
-- Bilingual surah list (English + Arabic)
-- `role="button"` and `aria-pressed` on surah items
-- Reciter selection with persistence and fallback
-- Resume last played surah and timestamp (localStorage)
-- ARIA live announcements for playback, errors, and reciter changes
-- Next / Previous buttons and keyboard shortcuts (n, p, m)
+- Keyboard navigation
+- Screen reader-friendly labels
+- Dark theme, high contrast
+- Remembers last surah, reciter, and playback position
 
-## Deploy to GitHub Pages
-1. Upload `index.html`, `styles.css`, `app.js`, and `README.md` to your repo root.
-2. In GitHub, go to **Settings → Pages** and set source to `Deploy from a branch` → `main` → `/ (root)`
-3. Save; your site should be live at `https://<username>.github.io/<repo>/` shortly.
+## Deployment
+Upload files to GitHub Pages via your repository settings.
 
-## Notes
-- If a reciter's files are moved or removed from the remote server, the player will try a fallback reciter automatically.
-- Some servers may restrict cross-origin audio requests (CORS). If you encounter persistent errors, try a different reciter or host files yourself.
+## Keyboard Shortcuts
+- **n**: Next surah
+- **p**: Previous surah
+- **Space/Enter**: Play selected surah
