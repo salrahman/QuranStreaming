@@ -9,7 +9,6 @@
 <body>
   <header role="banner">
     <h1>Quran Audio</h1>
-    <p class="visually-hidden" id="skip-target">Main content starts below</p>
     <a class="skip-link" href="#main">Skip to main content</a>
   </header>
 
@@ -22,16 +21,21 @@
 
       <audio id="audio" preload="metadata" controls aria-label="Audio playback controls"></audio>
 
-      <div class="seek" aria-hidden="false">
+      <div class="seek">
         <label for="progress" class="visually-hidden">Audio progress</label>
-        <span id="current-time" aria-label="Current playback time">0:00</span>
-        <input id="progress" type="range" min="0" max="100" value="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Seek audio position" />
-        <span id="duration" aria-label="Audio duration">0:00</span>
+        <span id="current-time">0:00</span>
+        <input id="progress" type="range" min="0" max="100" value="0" />
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button id="prev" aria-label="Play previous surah">⏮ Prev</button>
+        <button id="next" aria-label="Play next surah">Next ⏭</button>
       </div>
 
       <div class="reciter">
         <label for="speed">Playback speed:</label>
-        <select id="speed" aria-label="Select playback speed">
+        <select id="speed">
           <option value="0.75">0.75x</option>
           <option value="1" selected>1x</option>
           <option value="1.25">1.25x</option>
@@ -39,11 +43,12 @@
           <option value="2">2x</option>
         </select>
       </div>
+
+      <div id="aria-status" class="visually-hidden" aria-live="polite"></div>
     </section>
 
     <section class="list" aria-label="List of Surahs">
-      <h3 class="visually-hidden">Surah list</h3>
-      <ul id="surah-list" role="list"></ul>
+      <ul id="surah-list"></ul>
     </section>
   </main>
 
