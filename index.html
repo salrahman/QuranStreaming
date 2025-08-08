@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quran Audio (mp3quran)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Quran Audio (mp3quran)</h1>
+  </header>
+  <main>
+    <section class="player">
+      <div class="info">
+        <div id="surah-title">Select a surah</div>
+        <div id="surah-sub">—</div>
+      </div>
+      <audio id="audio" preload="metadata" controls></audio>
+      <div class="seek">
+        <span id="current-time">0:00</span>
+        <input id="progress" type="range" min="0" max="100" value="0" />
+        <span id="duration">0:00</span>
+      </div>
+      <div class="reciter"><label>Speed: <select id="speed">
+        <option value="0.75">0.75x</option>
+        <option value="1" selected>1x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+        <option value="2">2x</option>
+      </select></label></div>
+    </section>
+    <section class="list">
+      <ul id="surah-list"></ul>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
