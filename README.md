@@ -1,10 +1,10 @@
-# Accessible Quran v6.3
+# Accessible Quran v6.4 — Bookmarks
 
-Fixes:
-- Proper Arabic names displayed (separate Arabic span for correct RTL presentation)
-- Surah filenames use zero-padded IDs (001.mp3 ... 114.mp3)
-- Keeps reciter selection & accessibility features
+### New
+- 🔖 **Add Bookmark** stores: Surah, time position, and reciter
+- 📚 **Bookmarks list** with **Play** and **Delete**
+- 🗣️ ARIA announcements when adding/removing/playing bookmarks
+- ⌨️ Keyboard: press **b** to add a bookmark anytime
 
-Deployment:
-- Replace index.html, styles.css, app.js in your repo root with these files
-- Hard-refresh the site after deploy (Ctrl/Cmd + Shift + R)
+### Deploy
+Replace `index.html`, `styles.css`, and `app.js` with these files and hard-refresh your site.

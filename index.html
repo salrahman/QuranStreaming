@@ -32,6 +32,8 @@
           <option value="1.5">1.5x</option>
           <option value="2">2x</option>
         </select>
+
+        <button id="addBookmark" aria-label="Add bookmark at current time">🔖 Add Bookmark</button>
       </div>
 
       <div id="live-region" class="visually-hidden" aria-live="polite"></div>
@@ -39,6 +41,11 @@
 
     <section class="list" aria-label="List of Surahs">
       <ul id="surah-list" role="list"></ul>
+    </section>
+
+    <section class="bookmarks" aria-label="Bookmarks">
+      <h2>Bookmarks</h2>
+      <ul id="bookmark-list" role="list"></ul>
     </section>
   </main>
 
