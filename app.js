@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pendingResume = (typeof resumeTime === 'number') ? resumeTime : null;
     fallbackTried = false;
     const surah = surahs[i];
-    const url = getReciterBase() + '/' + surah.id + '.mp3';
+    const url = getReciterBase() + '/' + surah.id + '.mp3'; // zero-padded id
     audio.crossOrigin = 'anonymous';
     audio.src = url;
     renderList(); // update aria-pressed
@@ -162,19 +162,19 @@ document.addEventListener('DOMContentLoaded', () => {
   nextBtn.addEventListener('click', ()=> loadSurah(Math.min(surahs.length-1, current+1), true));
   addBookmarkBtn.addEventListener('click', addBookmark);
 
-  // keyboard shortcuts
+  // keyboard shortcuts (case-insensitive; ignore form controls)
   document.addEventListener('keydown', (e)=>{
-    const tag = document.activeElement && document.activeElement.tagName;
-    if(['INPUT','SELECT','TEXTAREA','BUTTON'].includes(tag)) return;
-    if(e.key === 'n') loadSurah(Math.min(surahs.length-1, current+1), true);
-    if(e.key === 'p') loadSurah(Math.max(0, current-1), true);
-    if(e.key === 'm') { audio.muted = !audio.muted; announce(audio.muted ? 'Muted' : 'Unmuted'); }
-    if(e.key.toLowerCase() === 'b') { addBookmark(); }
+    const tag = (document.activeElement && document.activeElement.tagName) || '';
+    if(['INPUT','SELECT','TEXTAREA','BUTTON'].includes(tag.toUpperCase())) return;
+    const key = (e.key || '').toLowerCase();
+    if(key == 'n') loadSurah(Math.min(surahs.length - 1, current + 1), true);
+    if(key == 'p') loadSurah(Math.max(0, current - 1), true);
+    if(key == 'm') { audio.muted = !audio.muted; announce(audio.muted ? 'Muted' : 'Unmuted'); }
+    if(key == 'b') { addBookmark(); }
   });
 
   // init UI and state
   renderList();
   renderBookmarks();
-  // restore saved state
   try { const raw = localStorage.getItem(STORAGE_KEY); if(raw){ const st = JSON.parse(raw); if(st && typeof st.lastReciter === 'number') reciterSelect.value = String(st.lastReciter); const idx = (typeof st.lastSurah === 'number') ? st.lastSurah : 0; const rt = (typeof st.lastTime === 'number') ? st.lastTime : 0; loadSurah(idx, false, rt); } else { loadSurah(0, false, 0); } } catch(e) { loadSurah(0,false,0); }
 });
