@@ -15,9 +15,9 @@
   <main id="main" role="main">
     <section class="player" aria-label="Quran Audio Player">
       <div class="controls" role="group" aria-label="Playback controls">
-        <button id="prevBtn" aria-label="Play previous surah">⏮ Previous</button>
-        <audio id="audio" preload="metadata" controls aria-label="Audio playback controls"></audio>
-        <button id="nextBtn" aria-label="Play next surah">Next ⏭</button>
+        <button id="prevBtn" aria-label="Play previous surah (Shortcut: P)">⏮ Previous</button>
+        <audio id="audio" preload="metadata" controls aria-label="Audio playback controls (Shortcut: Space to play/pause, M to mute/unmute)"></audio>
+        <button id="nextBtn" aria-label="Play next surah (Shortcut: N)">Next ⏭</button>
       </div>
 
       <div class="selectors" style="margin-top:12px; display:flex; gap:10px; align-items:center;">
@@ -33,7 +33,7 @@
           <option value="2">2x</option>
         </select>
 
-        <button id="addBookmark" aria-label="Add bookmark at current time">🔖 Add Bookmark</button>
+        <button id="addBookmark" aria-label="Add bookmark at current time (Shortcut: B)">🔖 Add Bookmark</button>
       </div>
 
       <div id="live-region" class="visually-hidden" aria-live="polite"></div>
@@ -49,8 +49,8 @@
     </section>
   </main>
 
-  <footer role="contentinfo" style="text-align:center; padding:10px; font-size:0.9rem;">Copyright © 2005, All rights reserved</footer>
+  <footer role="contentinfo" style="text-align:center; padding:10px; font-size:0.9rem;">© 2025 Accessible Quran. All rights reserved.</footer>
 
-  <script src="app.js?v=6.4.1"></script>
+  <script src="app.js?v=6.4.3"></script>
 </body>
 </html>

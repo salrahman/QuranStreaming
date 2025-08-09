@@ -1,1 +1,1 @@
-v6.4.1 with keyboard fixes and footer.
+v6.4.3: Space to play/pause + ARIA announcements.
