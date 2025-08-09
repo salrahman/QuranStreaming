@@ -169,17 +169,16 @@ document.addEventListener('DOMContentLoaded', () => {
   nextBtn.addEventListener('click', ()=> loadSurah(Math.min(surahs.length-1, current+1), true));
   addBookmarkBtn.addEventListener('click', addBookmark);
 
-  // keyboard shortcuts (case-insensitive; ignore form controls; Space toggles play/pause)
+  // keyboard shortcuts (case-insensitive; ignore form controls; ONLY 's' toggles play/pause)
   document.addEventListener('keydown', async (e)=>{
     const tag = (document.activeElement && document.activeElement.tagName) || '';
     if(['INPUT','SELECT','TEXTAREA','BUTTON'].includes(tag.toUpperCase())) return;
     const key = (e.key || '').toLowerCase();
-    const code = e.code || '';
     if(key === 'n') { loadSurah(Math.min(surahs.length - 1, current + 1), true); return; }
     if(key === 'p') { loadSurah(Math.max(0, current - 1), true); return; }
     if(key === 'm') { audio.muted = !audio.muted; announce(audio.muted ? 'Muted' : 'Unmuted'); return; }
     if(key === 'b') { addBookmark(); return; }
-    if(code === 'Space' || key === ' ') { e.preventDefault(); await togglePlayPause(); return; }
+    if(key === 's') { e.preventDefault(); await togglePlayPause(); return; }
   });
 
   // init UI and state

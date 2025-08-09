@@ -1,1 +1,1 @@
-v6.4.4: fix duplicate variable causing script crash; stable Space handling.
+v6.4.5: Play/Pause now only 'S'; ARIA label updated; rest unchanged.
