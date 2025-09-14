@@ -1,0 +1,16 @@
+:root{ --bg:#0b0b0b; --panel:#131313; --text:#fff; --muted:#aaa; --accent:#2ecc71; --border:#2a2a2a; }
+body{ margin:0; background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',sans-serif; }
+header{ padding:16px; border-bottom:1px solid var(--border); background:#0f3b2a; }
+h1{ margin:0; font-size:28px; }
+main{ display:grid; grid-template-columns: 1fr; gap:16px; padding:16px; }
+.player{ background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:12px; }
+.controls{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
+.btn{ background:#1f1f1f; color:#fff; border:1px solid var(--border); border-radius:8px; padding:10px 12px; min-width:44px; min-height:44px; }
+.btn.primary{ background:var(--accent); border-color:var(--accent); color:#000; font-weight:700; }
+.list{ background:var(--panel); border:1px solid var(--border); border-radius:10px; }
+#surahList{ list-style:none; margin:0; padding:0; }
+#surahList li{ border-bottom:1px solid var(--border); }
+#surahList button{ background:transparent; color:#fff; border:0; text-align:left; width:100%; padding:12px 14px; cursor:pointer; }
+#status{ color:var(--muted); padding:6px 2px; }
+.bookmarks{ background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:12px; }
+.sr-only{ position:absolute; left:-9999px; }
