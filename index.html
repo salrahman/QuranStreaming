@@ -4,42 +4,53 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Accessible Quran</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1 id="title">Accessible Quran</h1>
-    <label class="sr-only" for="reciter">Choose reciter</label>
-    <select id="reciter" aria-label="Choose reciter"></select>
+  <header role="banner">
+    <h1>Accessible Quran</h1>
+    <a class="skip-link visually-hidden" href="#main">Skip to main content</a>
   </header>
 
-  <main>
-    <section class="player" aria-label="Audio player">
-      <div id="live" aria-live="polite" class="sr-only"></div>
-      <div class="controls">
-        <button id="prevBtn" class="btn" aria-label="Previous surah" title="Previous">⏮️</button>
-        <button id="playBtn" class="btn primary" aria-label="Play" title="Play">▶️</button>
-        <button id="nextBtn" class="btn" aria-label="Next surah" title="Next">⏭️</button>
-        <button id="muteBtn" class="btn" aria-label="Mute audio" title="Mute">🔇</button>
-        <button id="speedBtn" class="btn" aria-label="Playback speed" title="Speed">1x</button>
+  <main id="main" role="main">
+    <section class="player" aria-label="Quran Audio Player">
+      <div class="controls" role="group" aria-label="Playback controls">
+        <button id="prevBtn" aria-label="Play previous surah (Shortcut: P)">⏮ Previous</button>
+        <audio id="audio" preload="metadata" controls aria-label="Audio playback controls (Shortcut: S to play/pause, M to mute/unmute)"></audio>
+        <button id="nextBtn" aria-label="Play next surah (Shortcut: N)">Next ⏭</button>
       </div>
-      <audio id="audio" preload="none" crossorigin="anonymous"></audio>
-      <div id="status" role="status" aria-live="polite"></div>
+
+      <div class="selectors" style="margin-top:12px; display:flex; gap:10px; align-items:center;">
+        <label for="reciter" class="visually-hidden">Reciter</label>
+        <select id="reciter" aria-label="Select reciter"></select>
+
+        <label for="speed" class="visually-hidden">Playback speed</label>
+        <select id="speed" aria-label="Playback speed">
+          <option value="0.75">0.75x</option>
+          <option value="1" selected>1x</option>
+          <option value="1.25">1.25x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2">2x</option>
+        </select>
+
+        <button id="addBookmark" aria-label="Add bookmark at current time (Shortcut: B)">🔖 Add Bookmark</button>
+      </div>
+
+      <div id="live-region" class="visually-hidden" aria-live="polite"></div>
     </section>
 
-    <nav class="list" aria-label="Surah list">
-      <ul id="surahList"></ul>
-    </nav>
+    <section class="list" aria-label="List of Surahs">
+      <ul id="surah-list" role="list"></ul>
+    </section>
 
     <section class="bookmarks" aria-label="Bookmarks">
       <h2>Bookmarks</h2>
-      <div>
-        <button id="addBm" class="btn" aria-label="Add bookmark at current time">Add bookmark</button>
-      </div>
-      <ul id="bmList"></ul>
+      <ul id="bookmark-list" role="list"></ul>
     </section>
   </main>
 
-  <script src="app.js"></script>
+  <footer role="contentinfo" style="text-align:center; padding:10px; font-size:0.9rem;">© 2025 Accessible Quran. All rights reserved.</footer>
+
+  <script src="app.js?v=6.4.5"></script>
 </body>
 </html>
